@@ -105,6 +105,8 @@
         if (sections.length === 0) {
             alert('請輸入抽籤內容');
             return;
+            var interval = 50; // 每50毫秒抽一次籤
+            var spins = 20; // 旋轉次數
         }
 
         const remainingSections = sections.filter((_, index) => index !== selectedSectionIndex);

@@ -121,17 +121,21 @@
     }
 
     drawButton.addEventListener('click', function() {
+    numSections = sections.length;
+    angle = Math.PI * 2 / numSections;
+    drawWheel(); // 在旋轉之前重新繪製轉盤
+
+    spinWheel();
+
+    setTimeout(function() {
+        alert(`得獎者是：${sections[selectedSectionIndex]}`);
+        sections.splice(selectedSectionIndex, 1);
         numSections = sections.length;
         angle = Math.PI * 2 / numSections;
-        spinWheel();
-        setTimeout(function() {
-            alert(`得獎者是：${sections[selectedSectionIndex]}`);
-            sections.splice(selectedSectionIndex, 1);
-            numSections = sections.length;
-            angle = Math.PI * 2 / numSections;
-            drawWheel();
-        }, 1000); // 1秒後彈出结果
-    });
+        drawWheel(); // 移除所選項目後重新繪製轉盤
+    }, 1000); // 1秒後彈出結果
+});
+
 
     itemsTextarea.addEventListener('input', function() {
         sections = itemsTextarea.value.trim().split('\n');

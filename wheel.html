@@ -111,7 +111,7 @@
         const randomIndex = Math.floor(Math.random() * remainingSections.length);
         const randomAngle = sections.indexOf(remainingSections[randomIndex]) * angle + angle / 2;
         const fullSpins = 10;
-        const targetAngle = fullSpins * 2 * Math.PI + randomAngle;
+        const targetAngle = fullSpins * 20 * Math.PI + randomAngle;
 
         wheel.style.transition = 'transform 0.5s ease-out';
         wheel.style.transform = `rotate(${targetAngle}rad)`;
